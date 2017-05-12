@@ -1,0 +1,34 @@
+# Project: NandN Bank
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = T.o C.o M.o
+LINKOBJ  = T.o C.o M.o
+LIBS     = -L"D:/programs/Dev/Dev-Cpp/MinGW64/lib" -L"D:/programs/Dev/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/programs/Dev/Dev-Cpp/MinGW64/include" -I"D:/programs/Dev/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/programs/Dev/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/programs/Dev/Dev-Cpp/MinGW64/include" -I"D:/programs/Dev/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/programs/Dev/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/programs/Dev/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "NandN Bank.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+T.o: T.cpp
+	$(CPP) -c T.cpp -o T.o $(CXXFLAGS)
+
+C.o: C.cpp
+	$(CPP) -c C.cpp -o C.o $(CXXFLAGS)
+
+M.o: M.cpp
+	$(CPP) -c M.cpp -o M.o $(CXXFLAGS)
